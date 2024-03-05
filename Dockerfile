@@ -1,6 +1,10 @@
-FROM node:16.20.2-bullseye
-COPY --from=docker:24.0.5 /usr/local/bin/docker /usr/bin/docker
-COPY --from=docker:24.0.5 /usr/local/bin/docker-compose /usr/bin/docker-compose
+FROM node:20.11.1-bullseye
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends rsync sudo && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY --from=docker:24.0.9 /usr/local/bin/docker /usr/bin/docker
+COPY --from=docker:24.0.9 /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 # This enabled `docker compose` to work
 RUN mkdir -p /root/.docker/cli-plugins \
