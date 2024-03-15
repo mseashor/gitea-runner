@@ -3,8 +3,8 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends rsync sudo && \
     rm -rf /var/lib/apt/lists/*
 
-COPY --from=docker:25.0.3 /usr/local/bin/docker /usr/bin/docker
-COPY --from=docker:25.0.3 /usr/local/bin/docker-compose /usr/bin/docker-compose
+COPY --from=docker:25.0.4 /usr/local/bin/docker /usr/bin/docker
+COPY --from=docker:25.0.4 /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 # This enabled `docker compose` to work
 RUN mkdir -p /root/.docker/cli-plugins \
