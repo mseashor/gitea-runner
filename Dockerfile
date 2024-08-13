@@ -11,4 +11,4 @@ COPY --from=docker:27.1.1 /usr/local/bin/docker-compose /usr/bin/docker-compose
 RUN mkdir -p /root/.docker/cli-plugins \
   && ln -s /usr/bin/docker-compose /root/.docker/cli-plugins/docker-compose
 
-RUN python3 -m pip install pip --upgrade && python3 -m pip install pyyaml
+RUN apt-get update && apt-get install python3-pip && python3 -m pip install pip --upgrade && python3 -m pip install pyyaml
