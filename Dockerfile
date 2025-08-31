@@ -4,6 +4,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends rsync sudo python3-pip && \
     rm -rf /var/lib/apt/lists/*
 
+
 COPY --from=docker:28.3.1 /usr/local/bin/docker /usr/bin/docker
 COPY --from=docker:28.3.1 /usr/local/bin/docker-compose /usr/bin/docker-compose
 
