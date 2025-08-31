@@ -12,5 +12,4 @@ COPY --from=docker:28.3.1 /usr/local/bin/docker-compose /usr/bin/docker-compose
 RUN mkdir -p /root/.docker/cli-plugins \
   && ln -s /usr/bin/docker-compose /root/.docker/cli-plugins/docker-compose
 
-RUN python3 -m pip install pip --upgrade --break-system-packages
 RUN python3 -m pip install --break-system-packages pyyaml
